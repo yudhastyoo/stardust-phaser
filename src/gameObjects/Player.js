@@ -43,11 +43,24 @@ export class Player extends Phaser.Physics.Arcade.Sprite {
     });
   }
 
-  moveLeft() {}
+  moveLeft() {
+    this.setVelocityX(-200)
+    this.anims.play('left', true)
+  }
 
-  moveRight() {}
+  moveRight() {
+    this.setVelocityX(200)
+    this.anims.play('right', true)
+  }
 
-  idle() {}
+  idle() {
+    this.setVelocityX(0)
+    this.anims.play('turn')
+  }
 
-  jump() {}
+  jump() {
+    if (this.body.blocked.down) {
+      this.setVelocityY(-500)
+    }
+  }
 }
